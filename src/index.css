@@ -1,95 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Temple Maroon & Gold palette */
+    --background: 35 33% 95%;
+    --foreground: 350 40% 12%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 35 30% 92%;
+    --card-foreground: 350 40% 12%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 35 33% 95%;
+    --popover-foreground: 350 40% 12%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 350 65% 22%;
+    --primary-foreground: 40 30% 95%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 40 60% 88%;
+    --secondary-foreground: 350 40% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 35 25% 90%;
+    --muted-foreground: 350 20% 40%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 43 80% 50%;
+    --accent-foreground: 350 40% 12%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 35 30% 82%;
+    --input: 35 30% 85%;
+    --ring: 43 80% 50%;
 
     --radius: 0.5rem;
 
+    /* Custom wedding tokens */
+    --temple-maroon: 350 65% 22%;
+    --temple-maroon-light: 350 50% 35%;
+    --mustard-gold: 43 80% 50%;
+    --mustard-gold-light: 43 70% 65%;
+    --cream: 35 33% 95%;
+    --cream-dark: 35 25% 88%;
+    --deep-red: 0 60% 18%;
+    --warm-brown: 25 40% 25%;
+
+    --gradient-gold: linear-gradient(135deg, hsl(43 80% 50%), hsl(43 70% 65%), hsl(43 80% 50%));
+    --gradient-maroon: linear-gradient(135deg, hsl(350 65% 22%), hsl(350 50% 35%));
+    --shadow-gold: 0 4px 30px -5px hsl(43 80% 50% / 0.3);
+    --shadow-elegant: 0 10px 40px -10px hsl(350 65% 22% / 0.2);
+
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Cormorant Garamond', serif;
+    --font-tamil: 'Noto Sans Tamil', sans-serif;
+
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
@@ -101,5 +74,124 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-body);
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .gold-shimmer {
+    background: linear-gradient(
+      90deg,
+      hsl(43 80% 50%) 0%,
+      hsl(43 70% 70%) 25%,
+      hsl(43 80% 50%) 50%,
+      hsl(43 70% 70%) 75%,
+      hsl(43 80% 50%) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gold-border-top {
+    border-top: 2px solid hsl(43 80% 50%);
+    position: relative;
+  }
+
+  .gold-border-top::before,
+  .gold-border-top::after {
+    content: '✦';
+    position: absolute;
+    top: -10px;
+    color: hsl(43 80% 50%);
+    font-size: 14px;
+  }
+
+  .gold-border-top::before { left: 20px; }
+  .gold-border-top::after { right: 20px; }
+
+  .section-divider {
+    @apply w-full flex items-center justify-center py-4;
+  }
+
+  .event-card {
+    @apply rounded-lg overflow-hidden transition-all duration-500;
+    background: linear-gradient(145deg, hsl(35 30% 92%), hsl(35 25% 88%));
+    border: 1px solid hsl(43 80% 50% / 0.3);
+    box-shadow: 0 4px 20px -5px hsl(350 65% 22% / 0.1);
+  }
+
+  .event-card:hover {
+    border-color: hsl(43 80% 50% / 0.6);
+    box-shadow: var(--shadow-gold);
+    transform: translateY(-4px);
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      to bottom,
+      hsl(350 65% 12% / 0.3) 0%,
+      hsl(350 65% 12% / 0.5) 40%,
+      hsl(350 65% 12% / 0.7) 70%,
+      hsl(350 65% 12% / 0.85) 100%
+    );
+  }
+
+  .mantra-text {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: hsl(43 70% 65%);
+    text-shadow: 0 0 20px hsl(43 80% 50% / 0.3);
+  }
+}
+
+@layer utilities {
+  .text-gold {
+    color: hsl(43 80% 50%);
+  }
+
+  .text-maroon {
+    color: hsl(350 65% 22%);
+  }
+
+  .bg-cream {
+    background-color: hsl(35 33% 95%);
+  }
+
+  .bg-maroon {
+    background-color: hsl(350 65% 22%);
+  }
+
+  .bg-gold {
+    background-color: hsl(43 80% 50%);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
 }
